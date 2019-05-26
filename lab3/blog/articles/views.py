@@ -8,9 +8,9 @@ def archive(request):
     return render(request, "archive.html", {"posts": Article.objects.all()})
 
 
-def get_article(request, article_id):
+def get_article(request, id):
     try:
-        post = Article.objects.filter(id=article_id)
-        return render(request, 'article.html', {"post": post})
+        post = Article.objects.filter(id=id)
+        return render(request, 'article.html', {"posts": post})
     except Article.DoesNotExist:
         raise Http404
